@@ -2,8 +2,7 @@
 This repo contains code for some of the apps that I built while learning the Django framework. Hosted on a DigitalOcean droplet using Ansible.
 
 ### Django Apps
-1. Blog 
-2. URL Shortener
+1. Polls
 
 ### Technology
 ```
