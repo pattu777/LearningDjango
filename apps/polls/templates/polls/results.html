@@ -2,14 +2,28 @@
 
 {% block content %}
 
-	<h2>{{ question.question_text }}</h2>
+	<div class="container">
 
-	<ul>
-	{% for choice in question.choice_set.all %}
-    	<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-	{% endfor %}
-	</ul>
-
-	<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-
+		<div class="row">
+			<table>
+	        <thead>
+	            <tr>
+	                <th style="text-align: center">Text</th>
+	                <th style="text-align: center">Number of votes</th>
+	            </tr>
+	        </thead>
+	        
+	        <tbody>
+	            {% for choice in question.choice_set.all %}
+	                <tr>
+	                    <td>{{ choice.choice_text }}</td>
+	                    <td style="text-align: center">{{ choice.votes }}</td>
+	                </tr>
+	            {% endfor %}
+	        </tbody>
+	    	</table>
+	    </div>
+	    
+	</div>
+	
 {% endblock content %}

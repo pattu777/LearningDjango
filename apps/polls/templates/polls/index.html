@@ -2,14 +2,31 @@
 
 {% block content %}
 	
-	{% if latest_question_list %}
-    	<ul>
-    	{% for question in latest_question_list %}
-        	<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    	{% endfor %}
-    	</ul>
-	{% else %}
-    	<p>No polls are available.</p>
-	{% endif %}
+    <div class="container">
+        
+        {% if latest_question_list %}
+            <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center">Poll Question</th>
+                    <th style="text-align: center">Vote</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for question in latest_question_list %}
+                    <tr>
+                        <td>{{ question.question_text }}</td>
+                        <td style="text-align: center"><a href="{% url 'polls:detail' question.id %}">Vote</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}    
+    </div>
+	
 
 {% endblock content %}
