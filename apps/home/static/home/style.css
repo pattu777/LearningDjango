@@ -10,3 +10,7 @@ body {
 .hero-feature {
     margin-bottom: 30px;
 }
+
+.main-heading {
+	background: #2ecc71;
+}
