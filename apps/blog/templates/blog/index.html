@@ -7,11 +7,11 @@
 		{% if post_list %}
 			{% for post in post_list %}
 				
-				<a class="post-title" href="{% url 'blog:detail' post.id %}"><h2>{{ post.title }}</h2></a>
+				<a class="post-title" href="{% url 'blog:detail' post.id %}"><h3>{{ post.title }}</h3></a>
   				<p>Posted on <span class="post-date">{{ post.pub_date }}</span> by <span class="post-author">{{ post.author }}</span></p>
   				
-  				<p>{{ post.content | truncatechars:100 }}</p>
-  				</br>
+  				<p>{{ post.content | truncatechars:200 }}</p>
+  				</br></br>
 			{% endfor %}
 		{% else %}
 			<p>No blog posts available.</p>

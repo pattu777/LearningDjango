@@ -12,5 +12,20 @@ body {
 }
 
 .main-heading {
+	background: #50c878;
+}
+
+body { 
+	font-family: DroidSansRegular, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+	font-size: 15px; 
+	line-height: 20px; 
+	/*color: #666;*/ 
+	position: relative; 
+	-webkit-font-smoothing: antialiased; 
+}
+
+/*
+.main-heading {
 	background: #2ecc71;
 }
+*/
