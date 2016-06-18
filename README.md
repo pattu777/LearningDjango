@@ -4,6 +4,7 @@ This repo contains code for some of the apps that I built while learning the Dja
 
 ### Django Apps
 1. Polls
+2. Blog
 
 ### Technology
 ```
