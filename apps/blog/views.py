@@ -1,16 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
 from .models import Post
 
-def index(request):
-	"""Show the first 7 posts."""
-	post_list = Post.objects.order_by('-pub_date')[:7]
-	context = {
-		'post_list': post_list,
-	}
-	return render(request, 'blog/index.html', context)
+class IndexView(generic.ListView):
+	template_name = 'blog/index.html'
+	context_object_name = 'post_list'
 
-def detail(request, post_id):
-	"""Show a particular blog post."""
-	post = get_object_or_404(Post, pk=post_id)
-	return render(request, 'blog/detail.html', {'post': post})
+	def get_queryset(self):
+		"""Return the last seven posts."""
+		return Post.objects.order_by('-pub_date')[:7]
+
+
+class DetailView(generic.DetailView):
+	model = Post
+	template_name = 'blog/detail.html'
