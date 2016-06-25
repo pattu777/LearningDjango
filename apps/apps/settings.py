@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-from local_settings import SECRET_KEY, DATABASES
+from local_settings import SECRET_KEY, DATABASES, DEBUG
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['learningdjango.in', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'polls.apps.PollsConfig',
     'blog.apps.BlogConfig',
-    'shortener.apps.ShortenerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
