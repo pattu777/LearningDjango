@@ -57,8 +57,6 @@ class TestIndexView(TestCase):
 			days=-10)
 		create_post(author, title='Hello Post', content="Hello John. Nice to meet you.", 
 			days=-15)
-		#create_post(author, title='Hidden Post', content="This post won't be displayed.", 
-		#	days=15)
 		
 		response = self.client.get(reverse("blog:index"))
 		self.assertEqual(response.status_code, 200)
