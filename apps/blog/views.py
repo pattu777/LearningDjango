@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.utils import timezone
 
 from .models import Post
+
 
 class IndexView(generic.ListView):
 	template_name = 'blog/index.html'
@@ -15,3 +17,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
 	model = Post
 	template_name = 'blog/detail.html'
+
+	def get_queryset(self):
+		"""Return only if the post was published in the past."""
+		return Post.objects.filter(pub_date__lte=timezone.now())
